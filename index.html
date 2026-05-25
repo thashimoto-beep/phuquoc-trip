@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Phu Quoc Trip</title>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      background:#f5f1e8;
+      color:#2f2f2f;
+      line-height:1.7;
+    }
+
+    .container{
+      max-width:500px;
+      margin:0 auto;
+      padding-bottom:120px;
+    }
+
+    header{
+      text-align:center;
+      padding:50px 20px 30px;
+    }
+
+    header h1{
+      font-size:42px;
+      font-weight:500;
+      letter-spacing:4px;
+      margin-bottom:10px;
+    }
+
+    header p{
+      color:#777;
+      letter-spacing:3px;
+    }
+
+    .day-tabs{
+      display:flex;
+      overflow-x:auto;
+      gap:12px;
+      padding:0 20px 20px;
+      position:sticky;
+      top:0;
+      background:#f5f1e8;
+      z-index:10;
+    }
+
+    .day-btn{
+      min-width:80px;
+      border:none;
+      border-radius:22px;
+      padding:14px 0;
+      background:#fff;
+      color:#777;
+      font-size:18px;
+      box-shadow:0 2px 6px rgba(0,0,0,0.06);
+      cursor:pointer;
+    }
+
+    .day-btn.active{
+      background:#111;
+      color:#fff;
+    }
+
+    .day-content{
+      display:none;
+      padding:0 20px;
+    }
+
+    .day-content.active{
+      display:block;
+    }
+
+    .day-title{
+      font-size:54px;
+      font-weight:300;
+      margin:10px 0;
+    }
+
+    .label{
+      display:inline-block;
+      border:1px solid #5f8575;
+      color:#5f8575;
+      padding:8px 16px;
+      border-radius:12px;
+      margin-bottom:30px;
+      background:white;
+    }
+
+    .timeline{
+      position:relative;
+      margin-left:20px;
+      padding-left:30px;
+      border-left:2px solid #d8c8a8;
+    }
+
+    .item{
+      margin-bottom:40px;
+      position:relative;
+    }
+
+    .dot{
+      width:18px;
+      height:18px;
+      background:#c59f50;
+      border-radius:50%;
+      position:absolute;
+      left:-40px;
+      top:8px;
+    }
+
+    .time{
+      color:#7d8b85;
+      font-size:24px;
+      margin-bottom:6px;
+    }
+
+    .card{
+      background:white;
+      border-radius:22px;
+      padding:22px;
+      box-shadow:0 4px 12px rgba(0,0,0,0.06);
+    }
+
+    .card h3{
+      font-size:30px;
+      margin-bottom:8px;
+    }
+
+    .card p{
+      color:#666;
+    }
+
+    .buttons{
+      margin-top:15px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+
+    .buttons a{
+      text-decoration:none;
+      background:#edf4ff;
+      color:#3c6db5;
+      padding:8px 14px;
+      border-radius:999px;
+      font-size:14px;
+    }
+
+    .memo{
+      background:white;
+      margin:40px 20px;
+      border-radius:22px;
+      padding:20px;
+      box-shadow:0 4px 12px rgba(0,0,0,0.06);
+    }
+
+    textarea{
+      width:100%;
+      height:140px;
+      border:none;
+      background:#f8f5ef;
+      border-radius:14px;
+      padding:14px;
+      resize:none;
+      font-size:16px;
+      margin-top:12px;
+    }
+
+    .bottom-nav{
+      position:fixed;
+      bottom:0;
+      left:0;
+      width:100%;
+      background:white;
+      display:flex;
+      justify-content:space-around;
+      padding:12px 0;
+      box-shadow:0 -4px 12px rgba(0,0,0,0.08);
+    }
+
+    .bottom-nav div{
+      text-align:center;
+      font-size:13px;
+      color:#666;
+    }
+
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <header>
+    <h1>フーコック</h1>
+    <p>JUNE 5 — 9, 2026</p>
+  </header>
+
+  <div class="day-tabs">
+    <button class="day-btn active" onclick="showDay(0)">6/5</button>
+    <button class="day-btn" onclick="showDay(1)">6/6</button>
+    <button class="day-btn" onclick="showDay(2)">6/7</button>
+  </div>
+
+  <section class="day-content active">
+
+    <div class="day-title">6/5</div>
+    <div class="label">到着日</div>
+
+    <div class="timeline">
+
+      <div class="item">
+        <div class="dot"></div>
+        <div class="time">14:30</div>
+
+        <div class="card">
+          <h3>✈️ フーコック到着</h3>
+          <p>SIM・両替・Grab確認</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="dot"></div>
+        <div class="time">16:00</div>
+
+        <div class="card">
+          <h3>🚕 Grabでホテルへ</h3>
+          <p>北部エリアは距離あり。料金注意。</p>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+</div>
+
+<script>
+
+const tabs = document.querySelectorAll(".day-btn");
+const contents = document.querySelectorAll(".day-content");
+
+function showDay(index){
+
+  tabs.forEach(btn => btn.classList.remove("active"));
+  contents.forEach(c => c.classList.remove("active"));
+
+  tabs[index].classList.add("active");
+  contents[index].classList.add("active");
+}
+
+</script>
+
+</body>
+</html>
