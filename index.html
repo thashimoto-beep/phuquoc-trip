@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>タイ・バンコク</title>
+  <title>タイ・バンコク旅行</title>
 
   <style>
     * {
@@ -20,18 +20,18 @@
     }
 
     .page {
-      max-width: 520px;
+      max-width: 560px;
       margin: 0 auto;
       padding: 36px 18px 110px;
     }
 
     header {
       text-align: center;
-      margin-bottom: 32px;
+      margin-bottom: 30px;
     }
 
     header h1 {
-      font-size: 28px;
+      font-size: 30px;
       letter-spacing: 0.18em;
       font-weight: 500;
       margin-bottom: 8px;
@@ -53,7 +53,7 @@
     }
 
     .tab {
-      min-width: 72px;
+      min-width: 76px;
       background: #fffaf2;
       border: 1px solid #e5ddd0;
       border-radius: 14px;
@@ -61,7 +61,8 @@
       padding: 10px 0;
       font-size: 22px;
       color: #555;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      cursor: pointer;
     }
 
     .tab span {
@@ -156,25 +157,7 @@
     .event p {
       font-size: 15px;
       color: #6a5f55;
-      margin-bottom: 10px;
-    }
-
-    .buttons {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin-top: 8px;
-    }
-
-    .btn {
-      display: inline-block;
-      text-decoration: none;
-      color: #17666d;
-      background: #eefbfb;
-      border: 1px solid #c8e5e5;
-      border-radius: 999px;
-      padding: 6px 12px;
-      font-size: 13px;
+      margin-bottom: 8px;
     }
 
     .bottom-nav {
@@ -191,7 +174,7 @@
     }
 
     .nav-item {
-      width: 70px;
+      width: 76px;
       background: #fffdf8;
       border: 1px solid #e1d6c6;
       border-radius: 12px;
@@ -205,6 +188,14 @@
       font-size: 20px;
       line-height: 1.1;
     }
+
+    .day-page {
+      display: none;
+    }
+
+    .day-page.active {
+      display: block;
+    }
   </style>
 </head>
 
@@ -213,80 +204,162 @@
 
     <header>
       <h1>タイ・バンコク</h1>
-      <p>MAY 6 — 11, 2026</p>
+      <p>MAY 8 — 10, 2026</p>
     </header>
 
     <div class="tabs">
-      <div class="tab">5/6<span>水</span></div>
-      <div class="tab active">5/7<span>木</span></div>
-      <div class="tab">5/8<span>金</span></div>
-      <div class="tab">5/9<span>土</span></div>
-      <div class="tab">5/10<span>日</span></div>
-      <div class="tab">5/11<span>月</span></div>
+      <div class="tab active" onclick="showDay('day-0508', this)">5/8<span>金</span></div>
+      <div class="tab" onclick="showDay('day-0509', this)">5/9<span>土</span></div>
+      <div class="tab" onclick="showDay('day-0510', this)">5/10<span>日</span></div>
     </div>
 
-    <section class="date-title">
-      <div>
-        <span class="big">5 / 7</span>
-        <span class="day">木</span>
+    <!-- 5/8 -->
+    <section id="day-0508" class="day-page active">
+      <div class="date-title">
+        <span class="big">5 / 8</span>
+        <span class="day">金</span>
+        <div class="en">FRIDAY</div>
       </div>
-      <div class="en">THURSDAY</div>
+
+      <div class="label">カンチャナブリ観光</div>
+
+      <div class="timeline">
+        <div class="event">
+          <div class="time">7:30</div>
+          <h3>🚌 ツアー出発</h3>
+          <p>カンチャナブリへ</p>
+        </div>
+
+        <div class="event">
+          <div class="time">10:00</div>
+          <h3>🏛 タイガーケーブ寺</h3>
+          <p>Wat Tham Suea</p>
+        </div>
+
+        <div class="event">
+          <div class="time">12:00</div>
+          <h3>☕ ミーナーカフェ</h3>
+          <p>休憩・カフェタイム</p>
+        </div>
+
+        <div class="event">
+          <div class="time">13:30</div>
+          <h3>🏛 ムアンマリカ</h3>
+          <p>観光</p>
+        </div>
+
+        <div class="event">
+          <div class="time">16:00</div>
+          <h3>🚆 泰緬鉄道</h3>
+          <p>ホテルロビー集合</p>
+        </div>
+
+        <div class="event">
+          <div class="time">17:00</div>
+          <h3>🌉 クウェー川橋</h3>
+          <p>ピックアップ</p>
+        </div>
+
+        <div class="event highlight">
+          <div class="time">20:00</div>
+          <h3>🏨 帰着</h3>
+          <p>ホテルへ</p>
+        </div>
+      </div>
     </section>
 
-    <div class="label">のんびり回復プラン</div>
-
-    <div class="timeline">
-
-      <div class="event">
-        <div class="time">午前</div>
-        <h3>🏨 ホテル満喫</h3>
-        <p>朝食・プール・スパ</p>
+    <!-- 5/9 -->
+    <section id="day-0509" class="day-page">
+      <div class="date-title">
+        <span class="big">5 / 9</span>
+        <span class="day">土</span>
+        <div class="en">SATURDAY</div>
       </div>
 
-      <div class="event">
-        <div class="time">14:00</div>
-        <h3>🍽 遅めランチ</h3>
-        <p>Riva Florale等 館内</p>
-      </div>
+      <div class="label">のんびり回復プラン</div>
 
-      <div class="event">
-        <div class="time">午後</div>
-        <h3>🏊 プール・スパ</h3>
-        <p>カンチャナブリ疲労回復</p>
-      </div>
+      <div class="timeline">
+        <div class="event">
+          <div class="time">午前</div>
+          <h3>🏨 ホテル満喫</h3>
+          <p>朝食・プール・スパ</p>
+        </div>
 
-      <div class="event">
-        <div class="time">17:00</div>
-        <h3>🛥 シャトルボート</h3>
-        <p>ホテル → ICONSIAM 無料</p>
-        <div class="buttons">
-          <a class="btn" href="#">時刻表</a>
-          <a class="btn" href="#">公式</a>
+        <div class="event">
+          <div class="time">14:00</div>
+          <h3>🍽 遅めランチ</h3>
+          <p>Riva Florale等 館内</p>
+        </div>
+
+        <div class="event">
+          <div class="time">午後</div>
+          <h3>🏊 プール・スパ</h3>
+          <p>カンチャナブリ疲労回復</p>
+        </div>
+
+        <div class="event">
+          <div class="time">17:00</div>
+          <h3>🛥 シャトルボート</h3>
+          <p>ホテル → ICONSIAM 無料</p>
+        </div>
+
+        <div class="event">
+          <div class="time">17:30</div>
+          <h3>🛍 ICONSIAM散策</h3>
+          <p>SOOKSIAM・夕景</p>
+        </div>
+
+        <div class="event">
+          <div class="time">19:00</div>
+          <h3>🍽 ディナー</h3>
+          <p>ICONSIAM or ホテル館内</p>
+        </div>
+
+        <div class="event highlight">
+          <div class="time">20:30</div>
+          <h3>🏨 ホテル帰着</h3>
+          <p>ゆっくり休む</p>
         </div>
       </div>
+    </section>
 
-      <div class="event">
-        <div class="time">17:30</div>
-        <h3>🛍 ICONSIAM散策</h3>
-        <p>SOOKSIAM・夕景</p>
-        <div class="buttons">
-          <a class="btn" href="#">地図</a>
+    <!-- 5/10 -->
+    <section id="day-0510" class="day-page">
+      <div class="date-title">
+        <span class="big">5 / 10</span>
+        <span class="day">日</span>
+        <div class="en">SUNDAY</div>
+      </div>
+
+      <div class="label">アユタヤ観光・空港移動</div>
+
+      <div class="timeline">
+        <div class="event">
+          <div class="time">12:00</div>
+          <h3>🚗 ホテルピックアップ</h3>
+          <p>ホテル → アユタヤ → 空港</p>
+        </div>
+
+        <div class="event">
+          <div class="time">14:30〜18:30</div>
+          <h3>🏛 アユタヤ遺跡</h3>
+          <p>貸切チャーターで観光</p>
+        </div>
+
+        <div class="event">
+          <div class="time">18:30</div>
+          <h3>🚗 BKKへ移動</h3>
+          <p>アユタヤから空港方面へ</p>
+        </div>
+
+        <div class="event highlight">
+          <div class="time">20:00</div>
+          <h3>✈️ スワンナプーム空港</h3>
+          <p>到着</p>
         </div>
       </div>
+    </section>
 
-      <div class="event">
-        <div class="time">19:00</div>
-        <h3>🍽 ディナー</h3>
-        <p>ICONSIAM or ホテル館内</p>
-      </div>
-
-      <div class="event highlight">
-        <div class="time">20:30</div>
-        <h3>🌙 ホテル帰着</h3>
-        <p>ゆっくり休む</p>
-      </div>
-
-    </div>
   </div>
 
   <div class="bottom-nav">
@@ -297,29 +370,21 @@
     <div class="nav-item"><div>📝</div>メモ</div>
     <div class="nav-item"><div>🔗</div>リンク</div>
   </div>
+
   <script>
-  function showDay(dayId) {
-    document.querySelectorAll('.day-page').forEach(page => {
-      page.style.display = 'none';
-    });
+    function showDay(dayId, clickedTab) {
+      document.querySelectorAll('.day-page').forEach(function(page) {
+        page.classList.remove('active');
+      });
 
-    document.getElementById(dayId).style.display = 'block';
+      document.getElementById(dayId).classList.add('active');
 
-    document.querySelectorAll('.tab').forEach(tab => {
-      tab.classList.remove('active');
-    });
+      document.querySelectorAll('.tab').forEach(function(tab) {
+        tab.classList.remove('active');
+      });
 
-    document.querySelector(`[data-day="${dayId}"]`).classList.add('active');
-  }
-</script>
-  <div class="tab active" data-day="day-0507" onclick="showDay('day-0507')">5/7<span>木</span></div>
-<div class="tab" data-day="day-0508" onclick="showDay('day-0508')">5/8<span>金</span></div>
-  <section id="day-0507" class="day-page">
-  5/7のスケジュール
-</section>
-
-<section id="day-0508" class="day-page" style="display:none;">
-  5/8のスケジュール
-</section>
+      clickedTab.classList.add('active');
+    }
+  </script>
 </body>
 </html>
