@@ -297,5 +297,29 @@
     <div class="nav-item"><div>📝</div>メモ</div>
     <div class="nav-item"><div>🔗</div>リンク</div>
   </div>
+  <script>
+  function showDay(dayId) {
+    document.querySelectorAll('.day-page').forEach(page => {
+      page.style.display = 'none';
+    });
+
+    document.getElementById(dayId).style.display = 'block';
+
+    document.querySelectorAll('.tab').forEach(tab => {
+      tab.classList.remove('active');
+    });
+
+    document.querySelector(`[data-day="${dayId}"]`).classList.add('active');
+  }
+</script>
+  <div class="tab active" data-day="day-0507" onclick="showDay('day-0507')">5/7<span>木</span></div>
+<div class="tab" data-day="day-0508" onclick="showDay('day-0508')">5/8<span>金</span></div>
+  <section id="day-0507" class="day-page">
+  5/7のスケジュール
+</section>
+
+<section id="day-0508" class="day-page" style="display:none;">
+  5/8のスケジュール
+</section>
 </body>
 </html>
