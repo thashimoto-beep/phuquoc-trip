@@ -1,265 +1,301 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Phu Quoc Trip</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>タイ・バンコク</title>
 
   <style>
-
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
-    body{
-      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-      background:#f5f1e8;
-      color:#2f2f2f;
-      line-height:1.7;
+    body {
+      font-family: "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
+      background: #f5f1e8;
+      color: #222;
+      line-height: 1.7;
     }
 
-    .container{
-      max-width:500px;
-      margin:0 auto;
-      padding-bottom:120px;
+    .page {
+      max-width: 520px;
+      margin: 0 auto;
+      padding: 36px 18px 110px;
     }
 
-    header{
-      text-align:center;
-      padding:50px 20px 30px;
+    header {
+      text-align: center;
+      margin-bottom: 32px;
     }
 
-    header h1{
-      font-size:42px;
-      font-weight:500;
-      letter-spacing:4px;
-      margin-bottom:10px;
+    header h1 {
+      font-size: 28px;
+      letter-spacing: 0.18em;
+      font-weight: 500;
+      margin-bottom: 8px;
     }
 
-    header p{
-      color:#777;
-      letter-spacing:3px;
+    header p {
+      font-size: 14px;
+      letter-spacing: 0.25em;
+      color: #666;
     }
 
-    .day-tabs{
-      display:flex;
-      overflow-x:auto;
-      gap:12px;
-      padding:0 20px 20px;
-      position:sticky;
-      top:0;
-      background:#f5f1e8;
-      z-index:10;
+    .tabs {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      padding-bottom: 22px;
+      border-bottom: 1px solid #e5ddd0;
+      margin-bottom: 32px;
     }
 
-    .day-btn{
-      min-width:80px;
-      border:none;
-      border-radius:22px;
-      padding:14px 0;
-      background:#fff;
-      color:#777;
-      font-size:18px;
-      box-shadow:0 2px 6px rgba(0,0,0,0.06);
-      cursor:pointer;
+    .tab {
+      min-width: 72px;
+      background: #fffaf2;
+      border: 1px solid #e5ddd0;
+      border-radius: 14px;
+      text-align: center;
+      padding: 10px 0;
+      font-size: 22px;
+      color: #555;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.03);
     }
 
-    .day-btn.active{
-      background:#111;
-      color:#fff;
+    .tab span {
+      display: block;
+      font-size: 12px;
+      color: #777;
+      margin-top: -4px;
     }
 
-    .day-content{
-      display:none;
-      padding:0 20px;
+    .tab.active {
+      background: #111;
+      color: #fff;
     }
 
-    .day-content.active{
-      display:block;
+    .tab.active span {
+      color: #ddd;
     }
 
-    .day-title{
-      font-size:54px;
-      font-weight:300;
-      margin:10px 0;
+    .date-title {
+      margin-bottom: 24px;
     }
 
-    .label{
-      display:inline-block;
-      border:1px solid #5f8575;
-      color:#5f8575;
-      padding:8px 16px;
-      border-radius:12px;
-      margin-bottom:30px;
-      background:white;
+    .date-title .big {
+      font-size: 56px;
+      letter-spacing: 0.08em;
+      font-weight: 300;
     }
 
-    .timeline{
-      position:relative;
-      margin-left:20px;
-      padding-left:30px;
-      border-left:2px solid #d8c8a8;
+    .date-title .day {
+      font-size: 22px;
+      color: #9b927f;
+      margin-left: 8px;
     }
 
-    .item{
-      margin-bottom:40px;
-      position:relative;
+    .date-title .en {
+      font-size: 14px;
+      letter-spacing: 0.25em;
+      color: #666;
+      margin-top: -8px;
     }
 
-    .dot{
-      width:18px;
-      height:18px;
-      background:#c59f50;
-      border-radius:50%;
-      position:absolute;
-      left:-40px;
-      top:8px;
+    .label {
+      display: inline-block;
+      border: 1px solid #2d7d85;
+      color: #17666d;
+      background: #fffdf8;
+      border-radius: 6px;
+      padding: 7px 14px;
+      font-size: 14px;
+      margin-bottom: 30px;
     }
 
-    .time{
-      color:#7d8b85;
-      font-size:24px;
-      margin-bottom:6px;
+    .timeline {
+      position: relative;
+      padding-left: 26px;
+      border-left: 1px solid #e7dccb;
     }
 
-    .card{
-      background:white;
-      border-radius:22px;
-      padding:22px;
-      box-shadow:0 4px 12px rgba(0,0,0,0.06);
+    .event {
+      position: relative;
+      padding-bottom: 34px;
     }
 
-    .card h3{
-      font-size:30px;
-      margin-bottom:8px;
+    .event::before {
+      content: "";
+      position: absolute;
+      left: -35px;
+      top: 5px;
+      width: 14px;
+      height: 14px;
+      background: #fffdf8;
+      border: 3px solid #bd9440;
+      border-radius: 50%;
     }
 
-    .card p{
-      color:#666;
+    .event.highlight::before {
+      background: #bd9440;
     }
 
-    .buttons{
-      margin-top:15px;
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
+    .time {
+      color: #0d5660;
+      font-size: 18px;
+      margin-bottom: 6px;
     }
 
-    .buttons a{
-      text-decoration:none;
-      background:#edf4ff;
-      color:#3c6db5;
-      padding:8px 14px;
-      border-radius:999px;
-      font-size:14px;
+    .event h3 {
+      font-size: 21px;
+      margin-bottom: 4px;
+      font-weight: 700;
     }
 
-    .memo{
-      background:white;
-      margin:40px 20px;
-      border-radius:22px;
-      padding:20px;
-      box-shadow:0 4px 12px rgba(0,0,0,0.06);
+    .event p {
+      font-size: 15px;
+      color: #6a5f55;
+      margin-bottom: 10px;
     }
 
-    textarea{
-      width:100%;
-      height:140px;
-      border:none;
-      background:#f8f5ef;
-      border-radius:14px;
-      padding:14px;
-      resize:none;
-      font-size:16px;
-      margin-top:12px;
+    .buttons {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 8px;
     }
 
-    .bottom-nav{
-      position:fixed;
-      bottom:0;
-      left:0;
-      width:100%;
-      background:white;
-      display:flex;
-      justify-content:space-around;
-      padding:12px 0;
-      box-shadow:0 -4px 12px rgba(0,0,0,0.08);
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      color: #17666d;
+      background: #eefbfb;
+      border: 1px solid #c8e5e5;
+      border-radius: 999px;
+      padding: 6px 12px;
+      font-size: 13px;
     }
 
-    .bottom-nav div{
-      text-align:center;
-      font-size:13px;
-      color:#666;
+    .bottom-nav {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: #f8f3ea;
+      border-top: 1px solid #e1d6c6;
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 8px;
     }
 
+    .nav-item {
+      width: 70px;
+      background: #fffdf8;
+      border: 1px solid #e1d6c6;
+      border-radius: 12px;
+      text-align: center;
+      padding: 7px 4px;
+      font-size: 12px;
+      color: #111;
+    }
+
+    .nav-item div {
+      font-size: 20px;
+      line-height: 1.1;
+    }
   </style>
 </head>
 
 <body>
+  <div class="page">
 
-<div class="container">
+    <header>
+      <h1>タイ・バンコク</h1>
+      <p>MAY 6 — 11, 2026</p>
+    </header>
 
-  <header>
-    <h1>フーコック</h1>
-    <p>JUNE 5 — 9, 2026</p>
-  </header>
+    <div class="tabs">
+      <div class="tab">5/6<span>水</span></div>
+      <div class="tab active">5/7<span>木</span></div>
+      <div class="tab">5/8<span>金</span></div>
+      <div class="tab">5/9<span>土</span></div>
+      <div class="tab">5/10<span>日</span></div>
+      <div class="tab">5/11<span>月</span></div>
+    </div>
 
-  <div class="day-tabs">
-    <button class="day-btn active" onclick="showDay(0)">6/5</button>
-    <button class="day-btn" onclick="showDay(1)">6/6</button>
-    <button class="day-btn" onclick="showDay(2)">6/7</button>
-  </div>
+    <section class="date-title">
+      <div>
+        <span class="big">5 / 7</span>
+        <span class="day">木</span>
+      </div>
+      <div class="en">THURSDAY</div>
+    </section>
 
-  <section class="day-content active">
-
-    <div class="day-title">6/5</div>
-    <div class="label">到着日</div>
+    <div class="label">のんびり回復プラン</div>
 
     <div class="timeline">
 
-      <div class="item">
-        <div class="dot"></div>
-        <div class="time">14:30</div>
+      <div class="event">
+        <div class="time">午前</div>
+        <h3>🏨 ホテル満喫</h3>
+        <p>朝食・プール・スパ</p>
+      </div>
 
-        <div class="card">
-          <h3>✈️ フーコック到着</h3>
-          <p>SIM・両替・Grab確認</p>
+      <div class="event">
+        <div class="time">14:00</div>
+        <h3>🍽 遅めランチ</h3>
+        <p>Riva Florale等 館内</p>
+      </div>
+
+      <div class="event">
+        <div class="time">午後</div>
+        <h3>🏊 プール・スパ</h3>
+        <p>カンチャナブリ疲労回復</p>
+      </div>
+
+      <div class="event">
+        <div class="time">17:00</div>
+        <h3>🛥 シャトルボート</h3>
+        <p>ホテル → ICONSIAM 無料</p>
+        <div class="buttons">
+          <a class="btn" href="#">時刻表</a>
+          <a class="btn" href="#">公式</a>
         </div>
       </div>
 
-      <div class="item">
-        <div class="dot"></div>
-        <div class="time">16:00</div>
-
-        <div class="card">
-          <h3>🚕 Grabでホテルへ</h3>
-          <p>北部エリアは距離あり。料金注意。</p>
+      <div class="event">
+        <div class="time">17:30</div>
+        <h3>🛍 ICONSIAM散策</h3>
+        <p>SOOKSIAM・夕景</p>
+        <div class="buttons">
+          <a class="btn" href="#">地図</a>
         </div>
+      </div>
+
+      <div class="event">
+        <div class="time">19:00</div>
+        <h3>🍽 ディナー</h3>
+        <p>ICONSIAM or ホテル館内</p>
+      </div>
+
+      <div class="event highlight">
+        <div class="time">20:30</div>
+        <h3>🌙 ホテル帰着</h3>
+        <p>ゆっくり休む</p>
       </div>
 
     </div>
+  </div>
 
-  </section>
-
-</div>
-
-<script>
-
-const tabs = document.querySelectorAll(".day-btn");
-const contents = document.querySelectorAll(".day-content");
-
-function showDay(index){
-
-  tabs.forEach(btn => btn.classList.remove("active"));
-  contents.forEach(c => c.classList.remove("active"));
-
-  tabs[index].classList.add("active");
-  contents[index].classList.add("active");
-}
-
-</script>
-
+  <div class="bottom-nav">
+    <div class="nav-item"><div>🛥</div>ボート</div>
+    <div class="nav-item"><div>🍜</div>料理</div>
+    <div class="nav-item"><div>✈️</div>予約</div>
+    <div class="nav-item"><div>☑️</div>持ち物</div>
+    <div class="nav-item"><div>📝</div>メモ</div>
+    <div class="nav-item"><div>🔗</div>リンク</div>
+  </div>
 </body>
 </html>
