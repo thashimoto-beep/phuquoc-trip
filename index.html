@@ -3,166 +3,193 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>タイ・バンコク旅行</title>
-
+<title>フーコック旅行 2026</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:"Hiragino Sans","Yu Gothic","Meiryo",sans-serif;background:#f5f1e8;color:#222;line-height:1.7}
 .page{max-width:560px;margin:0 auto;padding:36px 18px 120px}
-header{text-align:center;margin-bottom:30px}
+header{text-align:center;margin-bottom:28px}
 header h1{font-size:30px;letter-spacing:.18em;font-weight:500}
-header p{font-size:14px;letter-spacing:.25em;color:#666}
-.tabs{display:flex;gap:10px;overflow-x:auto;padding-bottom:22px;border-bottom:1px solid #e5ddd0;margin-bottom:32px}
+header p{font-size:14px;letter-spacing:.22em;color:#666}
+.tabs{display:flex;gap:10px;overflow-x:auto;padding-bottom:20px;border-bottom:1px solid #e5ddd0;margin-bottom:30px}
 .tab,.nav-item{background:#fffaf2;border:1px solid #e5ddd0;border-radius:14px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.04);cursor:pointer}
-.tab{min-width:76px;padding:10px 0;font-size:22px;color:#555}
+.tab{min-width:78px;padding:10px 0;font-size:20px;color:#555}
 .tab span{display:block;font-size:12px;color:#777;margin-top:-4px}
 .tab.active{background:#111;color:#fff}
 .tab.active span{color:#ddd}
 .screen{display:none}
 .screen.active{display:block}
-.date-title{margin-bottom:24px}
-.big{font-size:56px;letter-spacing:.08em;font-weight:300}
+.date-title{margin-bottom:22px}
+.big{font-size:52px;letter-spacing:.08em;font-weight:300}
 .day{font-size:22px;color:#9b927f;margin-left:8px}
-.en{font-size:14px;letter-spacing:.25em;color:#666;margin-top:-8px}
-.label{display:inline-block;border:1px solid #2d7d85;color:#17666d;background:#fffdf8;border-radius:6px;padding:7px 14px;font-size:14px;margin-bottom:30px}
+.en{font-size:14px;letter-spacing:.22em;color:#666;margin-top:-8px}
+.label{display:inline-block;border:1px solid #2d7d85;color:#17666d;background:#fffdf8;border-radius:6px;padding:7px 14px;font-size:14px;margin-bottom:28px}
 .timeline{position:relative;padding-left:26px;border-left:1px solid #e7dccb}
-.event{position:relative;padding-bottom:34px}
+.event{position:relative;padding-bottom:30px}
 .event::before{content:"";position:absolute;left:-35px;top:5px;width:14px;height:14px;background:#fffdf8;border:3px solid #bd9440;border-radius:50%}
 .event.highlight::before{background:#bd9440}
 .time{color:#0d5660;font-size:18px;margin-bottom:6px}
-.event h3{font-size:21px;margin-bottom:4px;font-weight:700}
+.event h3{font-size:20px;margin-bottom:4px;font-weight:700}
 .event p{font-size:15px;color:#6a5f55}
 .card{background:#fffdf8;border:1px solid #e5ddd0;border-radius:18px;padding:18px;margin-bottom:14px}
 .card h3{font-size:20px;margin-bottom:8px}
 .card p,.card li{color:#5f554d;font-size:15px}
 ul{padding-left:20px}
-.bottom-nav{position:fixed;left:0;right:0;bottom:0;background:#f8f3ea;border-top:1px solid #e1d6c6;display:flex;justify-content:center;gap:8px;padding:10px 8px}
-.nav-item{width:76px;padding:7px 4px;font-size:12px;color:#111}
+a{color:#0066cc}
+.bottom-nav{position:fixed;left:0;right:0;bottom:0;background:#f8f3ea;border-top:1px solid #e1d6c6;display:flex;justify-content:center;gap:8px;padding:10px 8px;overflow-x:auto}
+.nav-item{min-width:72px;padding:7px 4px;font-size:12px;color:#111}
 .nav-item div{font-size:20px;line-height:1.1}
 .nav-item.active{background:#111;color:#fff}
 </style>
 </head>
 
 <body>
-
 <div class="page">
 <header>
-<h1>タイ・バンコク</h1>
-<p>MAY 8 — 10, 2026</p>
+<h1>フーコック</h1>
+<p>AUGUST 7 — 12, 2026</p>
 </header>
 
 <div class="tabs">
-<div class="tab active" onclick="showDay('day-0508',this)">5/8<span>金</span></div>
-<div class="tab" onclick="showDay('day-0509',this)">5/9<span>土</span></div>
-<div class="tab" onclick="showDay('day-0510',this)">5/10<span>日</span></div>
+<div class="tab active" onclick="showDay('day-0807',this)">8/7<span>金</span></div>
+<div class="tab" onclick="showDay('day-0808',this)">8/8<span>土</span></div>
+<div class="tab" onclick="showDay('day-0809',this)">8/9<span>日</span></div>
+<div class="tab" onclick="showDay('day-0810',this)">8/10<span>月</span></div>
+<div class="tab" onclick="showDay('day-0811',this)">8/11<span>火</span></div>
+<div class="tab" onclick="showDay('day-0812',this)">8/12<span>水</span></div>
 </div>
 
-<section id="day-0508" class="screen day-screen active">
-<div class="date-title"><span class="big">5 / 8</span><span class="day">金</span><div class="en">FRIDAY</div></div>
-<div class="label">カンチャナブリ観光</div>
+<section id="day-0807" class="screen day-screen active">
+<div class="date-title"><span class="big">8 / 7</span><span class="day">金</span><div class="en">FRIDAY</div></div>
+<div class="label">出発・北部ホテルへ</div>
 <div class="timeline">
-<div class="event"><div class="time">7:30</div><h3>🚌 ツアー出発</h3><p>カンチャナブリへ</p></div>
-<div class="event"><div class="time">10:00</div><h3>🏛 タイガーケーブ寺</h3><p>Wat Tham Suea</p></div>
-<div class="event"><div class="time">12:00</div><h3>☕ ミーナーカフェ</h3><p>休憩・カフェタイム</p></div>
-<div class="event"><div class="time">13:30</div><h3>🏛 ムアンマリカ</h3><p>観光</p></div>
-<div class="event"><div class="time">16:00</div><h3>🚆 泰緬鉄道</h3><p>ホテルロビー</p></div>
-<div class="event"><div class="time">17:00</div><h3>🌉 クウェー川橋</h3><p>ピックアップ</p></div>
-<div class="event highlight"><div class="time">20:00</div><h3>🏨 帰着</h3><p>ホテルへ</p></div>
+<div class="event"><div class="time">10:30</div><h3>✈️ 出発便</h3><p>福岡発</p></div>
+<div class="event"><div class="time">12:00</div><h3>🛬 仁川着</h3></div>
+<div class="event"><div class="time">19:05</div><h3>✈️ 仁川発</h3></div>
+<div class="event"><div class="time">22:50</div><h3>🛬 ドンナムン空港着</h3></div>
+<div class="event"><div class="time">夜</div><h3>🚗 送迎車で移動</h3><p>約45分</p></div>
+<div class="event highlight"><div class="time">00:00〜</div><h3>🏨 カジノホテル着</h3><p>ウィンダムグランド または ラディソンブルリゾート</p></div>
 </div>
 </section>
 
-<section id="day-0509" class="screen day-screen">
-<div class="date-title"><span class="big">5 / 9</span><span class="day">土</span><div class="en">SATURDAY</div></div>
-<div class="label">のんびり回復プラン</div>
+<section id="day-0808" class="screen day-screen">
+<div class="date-title"><span class="big">8 / 8</span><span class="day">土</span><div class="en">SATURDAY</div></div>
+<div class="label">カジノ＋サファリ</div>
 <div class="timeline">
-<div class="event"><div class="time">午前</div><h3>🏨 ホテル満喫</h3><p>朝食・プール・スパ</p></div>
-<div class="event"><div class="time">14:00</div><h3>🍽 遅めランチ</h3><p>Riva Florale等 館内</p></div>
-<div class="event"><div class="time">午後</div><h3>🏊 プール・スパ</h3><p>カンチャナブリ疲労回復</p></div>
-<div class="event"><div class="time">17:00</div><h3>🛥 シャトルボート</h3><p>ホテル → ICONSIAM 無料</p></div>
-<div class="event"><div class="time">17:30</div><h3>🛍 ICONSIAM散策</h3><p>SOOKSIAM・夕景</p></div>
-<div class="event"><div class="time">19:00</div><h3>🍽 ディナー</h3><p>ICONSIAM or ホテル館内</p></div>
-<div class="event highlight"><div class="time">20:30</div><h3>🏨 ホテル帰着</h3><p>ゆっくり休む</p></div>
+<div class="event"><div class="time">8:00</div><h3>🍳 朝食</h3></div>
+<div class="event"><div class="time">10:00</div><h3>🎰 カジノ</h3><p>午前中の空いている時間に少し遊ぶ</p></div>
+<div class="event"><div class="time">13:00</div><h3>🦁 サファリトラム</h3><p>Klook等で予約予定</p></div>
+<div class="event highlight"><div class="time">16:30</div><h3>🏨 ホテルへ</h3><p>休憩・プール・夜ご飯</p></div>
 </div>
 </section>
 
-<section id="day-0510" class="screen day-screen">
-<div class="date-title"><span class="big">5 / 10</span><span class="day">日</span><div class="en">SUNDAY</div></div>
-<div class="label">アユタヤ観光・空港移動</div>
+<section id="day-0809" class="screen day-screen">
+<div class="date-title"><span class="big">8 / 9</span><span class="day">日</span><div class="en">SUNDAY</div></div>
+<div class="label">水族館・遊園地・ナイトショー</div>
 <div class="timeline">
-<div class="event"><div class="time">12:00</div><h3>🚗 ホテルピックアップ</h3><p>ホテル → アユタヤ → 空港</p></div>
-<div class="event"><div class="time">14:30〜18:30</div><h3>🏛 アユタヤ遺跡</h3><p>貸切チャーターで観光</p></div>
-<div class="event"><div class="time">18:30</div><h3>🚗 BKKへ移動</h3><p>アユタヤから空港方面へ</p></div>
-<div class="event highlight"><div class="time">20:00</div><h3>✈️ スワンナプーム空港</h3><p>到着</p></div>
+<div class="event"><div class="time">8:00</div><h3>🍳 朝食</h3></div>
+<div class="event"><div class="time">12:30</div><h3>🎰 カジノ</h3></div>
+<div class="event"><div class="time">13:00</div><h3>🎢 VinWonders入場</h3><p>予約リンクあり</p></div>
+<div class="event"><div class="time">15:30</div><h3>🧜‍♀️ 水族館マーメイドショー</h3><p>特別席・優先席を確認</p></div>
+<div class="event"><div class="time">16:00〜17:30</div><h3>🎡 遊園地</h3><p>怖くないアトラクション中心</p></div>
+<div class="event"><div class="time">18:45</div><h3>🌃 ONCE SHOW</h3></div>
+<div class="event highlight"><div class="time">19:10</div><h3>🏨 ホテルへ</h3></div>
 </div>
 </section>
 
-<section id="boat" class="screen info-screen">
-<div class="label">🛥 ボート情報</div>
-<div class="card"><h3>ホテル → ICONSIAM</h3><p>シャトルボート利用予定。乗り場・時刻表リンクをここに追加。</p></div>
+<section id="day-0810" class="screen day-screen">
+<div class="date-title"><span class="big">8 / 10</span><span class="day">月</span><div class="en">MONDAY</div></div>
+<div class="label">南部へ移動・Sun World・ショー</div>
+<div class="timeline">
+<div class="event"><div class="time">8:00</div><h3>🍳 朝食</h3></div>
+<div class="event"><div class="time">11:00</div><h3>🧳 チェックアウト</h3></div>
+<div class="event"><div class="time">12:00</div><h3>🏨 ヒルトン着</h3><p>荷物預け</p></div>
+<div class="event"><div class="time">13:00</div><h3>🚠 Sun World着</h3></div>
+<div class="event"><div class="time">16:30</div><h3>🚠 Sun World発</h3></div>
+<div class="event"><div class="time">17:00</div><h3>🏨 チェックイン</h3><p>シャワー・着替え</p></div>
+<div class="event"><div class="time">19:30</div><h3>🌊 Symphony of the Sea</h3></div>
+<div class="event highlight"><div class="time">21:00</div><h3>🎆 Kiss of the Sea</h3><p>大型メインショー</p></div>
+</div>
 </section>
 
-<section id="food" class="screen info-screen">
-<div class="label">🍜 料理メモ</div>
-<div class="card"><h3>候補</h3><ul><li>Riva Florale</li><li>ICONSIAM</li><li>SOOKSIAM</li></ul></div>
+<section id="day-0811" class="screen day-screen">
+<div class="date-title"><span class="big">8 / 11</span><span class="day">火</span><div class="en">TUESDAY</div></div>
+<div class="label">最終日・ヘッドスパ・空港へ</div>
+<div class="timeline">
+<div class="event"><div class="time">9:00</div><h3>🍳 朝食</h3></div>
+<div class="event"><div class="time">12:00</div><h3>🚶 街歩き＆散策</h3><p>荷物はホテルに預けたまま</p></div>
+<div class="event"><div class="time">17:00</div><h3>💆 ヘッドスパ</h3><p>予約リンクあり</p></div>
+<div class="event"><div class="time">19:00</div><h3>🍽 ディナー</h3><p>Grab？送迎車？</p></div>
+<div class="event"><div class="time">21:00</div><h3>✈️ フーコック空港着</h3></div>
+<div class="event highlight"><div class="time">夜</div><h3>🛋 ラウンジ</h3><p>シャワー＆休憩</p></div>
+</div>
 </section>
 
-<section id="booking" class="screen info-screen">
-<div class="label">✈️ 予約情報</div>
-<div class="card"><h3>予約メモ</h3><p>ホテル、ツアー、チャーター、航空券の予約番号を書く場所。</p></div>
+<section id="day-0812" class="screen day-screen">
+<div class="date-title"><span class="big">8 / 12</span><span class="day">水</span><div class="en">WEDNESDAY</div></div>
+<div class="label">帰国日</div>
+<div class="timeline">
+<div class="event"><div class="time">0:10</div><h3>✈️ 帰国便</h3><p>フーコック発</p></div>
+<div class="event"><div class="time">7:50</div><h3>🛬 仁川着</h3></div>
+<div class="event"><div class="time">13:25</div><h3>✈️ 仁川発</h3></div>
+<div class="event highlight"><div class="time">16:55</div><h3>🛬 福岡着</h3></div>
+</div>
+</section>
+
+<section id="hotel" class="screen info-screen">
+<div class="label">🏨 ホテル</div>
+<div class="card"><h3>北部ホテル候補</h3><ul><li>Wyndham Grand Phu Quoc</li><li>Radisson Blu Resort Phu Quoc</li></ul></div>
+<div class="card"><h3>南部ホテル</h3><p>La Festa Phu Quoc, Curio Collection by Hilton</p></div>
+</section>
+
+<section id="casino" class="screen info-screen">
+<div class="label">🎰 カジノ</div>
+<div class="card"><h3>おすすめ時間</h3><p>午前〜昼が比較的空きやすく、タバコも夜より少なめの可能性。</p></div>
+</section>
+
+<section id="show" class="screen info-screen">
+<div class="label">🌃 ショー</div>
+<div class="card"><h3>VinWonders</h3><ul><li>15:30 マーメイドショー</li><li>18:45 ONCE SHOW</li></ul></div>
+<div class="card"><h3>Sunset Town</h3><ul><li>19:30 Symphony of the Sea</li><li>21:00 Kiss of the Sea</li></ul></div>
 </section>
 
 <section id="packing" class="screen info-screen">
 <div class="label">☑️ 持ち物</div>
-<div class="card"><h3>チェックリスト</h3><ul><li>パスポート</li><li>現金</li><li>モバイルバッテリー</li><li>日焼け止め</li><li>帽子</li></ul></div>
+<div class="card"><ul><li>パスポート</li><li>水着</li><li>羽織り</li><li>サンダル</li><li>日焼け止め</li><li>モバイルバッテリー</li></ul></div>
 </section>
 
 <section id="memo" class="screen info-screen">
 <div class="label">📝 メモ</div>
-<div class="card"><h3>自由メモ</h3><p>気づいたこと、注意点、英語フレーズなどを書く場所。</p></div>
-</section>
-
-<section id="link" class="screen info-screen">
-<div class="label">🔗 リンク</div>
-<div class="card"><h3>便利リンク</h3><ul><li>Google Map</li><li>Klook</li><li>ホテル公式</li><li>ボート時刻表</li></ul></div>
+<div class="card"><p>リンク・予約番号・送迎情報をここに追記。</p></div>
 </section>
 
 </div>
 
 <div class="bottom-nav">
-<div class="nav-item" onclick="showInfo('boat',this)"><div>🛥</div>ボート</div>
-<div class="nav-item" onclick="showInfo('food',this)"><div>🍜</div>料理</div>
-<div class="nav-item" onclick="showInfo('booking',this)"><div>✈️</div>予約</div>
+<div class="nav-item" onclick="showInfo('hotel',this)"><div>🏨</div>ホテル</div>
+<div class="nav-item" onclick="showInfo('casino',this)"><div>🎰</div>カジノ</div>
+<div class="nav-item" onclick="showInfo('show',this)"><div>🌃</div>ショー</div>
 <div class="nav-item" onclick="showInfo('packing',this)"><div>☑️</div>持ち物</div>
 <div class="nav-item" onclick="showInfo('memo',this)"><div>📝</div>メモ</div>
-<div class="nav-item" onclick="showInfo('link',this)"><div>🔗</div>リンク</div>
 </div>
 
 <script>
-let currentDay = "day-0508";
-
 function hideAll(){
-  document.querySelectorAll(".screen").forEach(s => s.classList.remove("active"));
+  document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"));
 }
-
-function showDay(dayId, tab){
-  currentDay = dayId;
+function showDay(dayId,tab){
   hideAll();
   document.getElementById(dayId).classList.add("active");
-
-  document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
+  document.querySelectorAll(".tab").forEach(t=>t.classList.remove("active"));
   tab.classList.add("active");
-
-  document.querySelectorAll(".nav-item").forEach(n => n.classList.remove("active"));
+  document.querySelectorAll(".nav-item").forEach(n=>n.classList.remove("active"));
 }
-
-function showInfo(infoId, nav){
+function showInfo(infoId,nav){
   hideAll();
   document.getElementById(infoId).classList.add("active");
-
-  document.querySelectorAll(".nav-item").forEach(n => n.classList.remove("active"));
+  document.querySelectorAll(".nav-item").forEach(n=>n.classList.remove("active"));
   nav.classList.add("active");
 }
 </script>
-
 </body>
 </html>
