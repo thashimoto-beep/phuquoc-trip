@@ -6,337 +6,66 @@
 <title>フーコック旅行</title>
 
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:100%;overflow-x:hidden}
+body{background:#f5f1e8;color:#222;font-family:"Hiragino Sans","Yu Gothic","Meiryo",sans-serif;line-height:1.6}
+.page{max-width:520px;margin:0 auto;padding:26px 14px 140px}
+header{text-align:center;margin-bottom:24px}
+header h1{font-size:24px;font-weight:500;letter-spacing:.18em;margin-bottom:8px}
+header p{font-size:12px;letter-spacing:.25em;color:#7a7064}
+.line{width:34px;height:2px;background:#bd9440;margin:14px auto 0}
 
-html,body{
-  width:100%;
-  overflow-x:hidden;
-}
+.tabs{display:flex;flex-wrap:nowrap;justify-content:center;gap:7px;padding-bottom:18px;border-bottom:1px solid #e2d8c8;margin-bottom:30px}
+.tab{width:72px;flex:0 0 72px;background:#fffaf4;border:1px solid #ddd3c3;border-radius:14px;text-align:center;padding:9px 0;cursor:pointer}
+.tab .date{font-size:16px;color:#5e564c}
+.tab .week{font-size:10px;color:#8a8174}
+.tab.active{background:#111}
+.tab.active .date,.tab.active .week{color:#fff}
 
-body{
-  background:#f5f1e8;
-  color:#222;
-  font-family:"Hiragino Sans","Yu Gothic","Meiryo",sans-serif;
-  line-height:1.6;
-}
+.screen{display:none}
+.screen.active{display:block}
 
-.page{
-  max-width:520px;
-  margin:0 auto;
-  padding:26px 14px 140px;
-}
+.date-title{margin-bottom:18px}
+.big-date{font-size:42px;font-weight:300;line-height:1.1}
+.big-date small{font-size:16px;color:#9c937f}
+.en-day{font-size:11px;letter-spacing:.18em;color:#6f675d;margin-top:2px}
+.label{display:inline-block;padding:8px 16px;border:1px solid #2d7d85;border-radius:8px;color:#17666d;background:#fffdf9;font-size:13px;margin:18px 0 28px}
 
-header{
-  text-align:center;
-  margin-bottom:24px;
-}
+.timeline{position:relative;padding-left:28px;border-left:1px solid #e3d8c8}
+.event{position:relative;padding-bottom:28px}
+.event::before{content:"";position:absolute;left:-37px;top:4px;width:14px;height:14px;border-radius:50%;background:#fffdf9;border:3px solid #bd9440}
+.event.highlight::before{background:#bd9440}
+.time{font-size:15px;color:#0d5660;margin-bottom:4px}
+.event h3{font-size:17px;margin-bottom:4px}
+.event p{font-size:13px;color:#6f655a}
 
-header h1{
-  font-size:24px;
-  font-weight:500;
-  letter-spacing:.18em;
-  margin-bottom:8px;
-}
+.memo-box{background:#fffdf9;border:1px solid #e1d7c7;border-radius:18px;margin-top:36px;padding:18px}
+.memo-head{display:flex;justify-content:space-between;margin-bottom:14px}
+.memo-title{color:#bd9440;font-size:14px;font-weight:bold}
+.memo-save{color:#a79b8b;font-size:12px}
+.memo-box textarea{width:100%;min-height:140px;border:none;resize:vertical;background:transparent;outline:none;font-size:14px;color:#555;line-height:1.8;font-family:inherit}
+.memo-box textarea::placeholder{color:#b1a79a}
 
-header p{
-  font-size:12px;
-  letter-spacing:.25em;
-  color:#7a7064;
-}
+.bottom-nav{position:fixed;left:0;right:0;bottom:0;background:#f8f3ea;border-top:1px solid #e1d7c7;display:flex;justify-content:center;gap:10px;padding:14px 10px}
+.nav-item{width:76px;background:#fffaf3;border:1px solid #ddd3c3;border-radius:18px;text-align:center;padding:10px 4px;cursor:pointer}
+.nav-icon{font-size:22px}
+.nav-text{font-size:11px;color:#333}
 
-.line{
-  width:34px;
-  height:2px;
-  background:#bd9440;
-  margin:14px auto 0;
-}
-
-.tabs{
-  display:flex;
-  flex-wrap:nowrap;
-  justify-content:center;
-  gap:7px;
-  padding-bottom:18px;
-  border-bottom:1px solid #e2d8c8;
-  margin-bottom:30px;
-}
-
-.tab{
-  width:72px;
-  flex:0 0 72px;
-  background:#fffaf4;
-  border:1px solid #ddd3c3;
-  border-radius:14px;
-  text-align:center;
-  padding:9px 0;
-  cursor:pointer;
-}
-
-.tab .date{
-  font-size:16px;
-  color:#5e564c;
-}
-
-.tab .week{
-  font-size:10px;
-  color:#8a8174;
-  margin-top:1px;
-}
-
-.tab.active{
-  background:#111;
-}
-
-.tab.active .date,
-.tab.active .week{
-  color:#fff;
-}
-
-.screen{
-  display:none;
-}
-
-.screen.active{
-  display:block;
-}
-
-.date-title{
-  margin-bottom:18px;
-}
-
-.big-date{
-  font-size:42px;
-  font-weight:300;
-  line-height:1.1;
-}
-
-.big-date small{
-  font-size:16px;
-  color:#9c937f;
-}
-
-.en-day{
-  font-size:11px;
-  letter-spacing:.18em;
-  color:#6f675d;
-  margin-top:2px;
-}
-
-.label{
-  display:inline-block;
-  padding:8px 16px;
-  border:1px solid #2d7d85;
-  border-radius:8px;
-  color:#17666d;
-  background:#fffdf9;
-  font-size:13px;
-  margin:18px 0 28px;
-}
-
-.timeline{
-  position:relative;
-  padding-left:28px;
-  border-left:1px solid #e3d8c8;
-}
-
-.event{
-  position:relative;
-  padding-bottom:28px;
-}
-
-.event::before{
-  content:"";
-  position:absolute;
-  left:-37px;
-  top:4px;
-  width:14px;
-  height:14px;
-  border-radius:50%;
-  background:#fffdf9;
-  border:3px solid #bd9440;
-}
-
-.event.highlight::before{
-  background:#bd9440;
-}
-
-.time{
-  font-size:15px;
-  color:#0d5660;
-  margin-bottom:4px;
-}
-
-.event h3{
-  font-size:17px;
-  margin-bottom:4px;
-}
-
-.event p{
-  font-size:13px;
-  color:#6f655a;
-}
-
-.memo-box{
-  background:#fffdf9;
-  border:1px solid #e1d7c7;
-  border-radius:18px;
-  margin-top:36px;
-  padding:18px;
-}
-
-.memo-head{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:14px;
-}
-
-.memo-title{
-  color:#bd9440;
-  font-size:14px;
-  font-weight:bold;
-}
-
-.memo-save{
-  color:#a79b8b;
-  font-size:12px;
-}
-
-.memo-box textarea{
-  width:100%;
-  min-height:140px;
-  border:none;
-  resize:vertical;
-  background:transparent;
-  outline:none;
-  font-size:14px;
-  color:#555;
-  line-height:1.8;
-  font-family:inherit;
-}
-
-.memo-box textarea::placeholder{
-  color:#b1a79a;
-}
-
-.bottom-nav{
-  position:fixed;
-  left:0;
-  right:0;
-  bottom:0;
-  background:#f8f3ea;
-  border-top:1px solid #e1d7c7;
-  display:flex;
-  justify-content:center;
-  gap:10px;
-  padding:14px 10px;
-}
-
-.nav-item{
-  width:92px;
-  background:#fffaf3;
-  border:1px solid #ddd3c3;
-  border-radius:18px;
-  text-align:center;
-  padding:10px 4px;
-  cursor:pointer;
-  transition:.2s;
-}
-
-.nav-item:hover{
-  transform:translateY(-2px);
-}
-
-.nav-icon{
-  font-size:24px;
-  margin-bottom:4px;
-}
-
-.nav-text{
-  font-size:12px;
-  color:#333;
-}
-
-.popup{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.45);
-  display:none;
-  justify-content:center;
-  align-items:center;
-  z-index:999;
-}
-
-.popup.active{
-  display:flex;
-}
-
-.popup-box{
-  width:90%;
-  max-width:420px;
-  background:#fffdf9;
-  border-radius:22px;
-  padding:24px;
-}
-
-.popup-box h2{
-  font-size:20px;
-  margin-bottom:14px;
-}
-
-.popup-box p{
-  font-size:14px;
-  line-height:1.8;
-  color:#555;
-}
-
-.close-btn{
-  margin-top:18px;
-  width:100%;
-  padding:12px;
-  border:none;
-  background:#111;
-  color:#fff;
-  border-radius:12px;
-  cursor:pointer;
-}
+.popup{position:fixed;inset:0;background:rgba(0,0,0,.45);display:none;justify-content:center;align-items:center;z-index:999}
+.popup.active{display:flex}
+.popup-box{width:90%;max-width:420px;background:#fffdf9;border-radius:22px;padding:24px}
+.popup-box h2{font-size:20px;margin-bottom:14px}
+.popup-box p{font-size:14px;line-height:1.8;color:#555}
+.close-btn{margin-top:18px;width:100%;padding:12px;border:none;background:#111;color:#fff;border-radius:12px;cursor:pointer}
 
 @media(max-width:430px){
-
-.page{
-  padding-left:10px;
-  padding-right:10px;
-}
-
-.tabs{
-  gap:5px;
-}
-
-.tab{
-  width:58px;
-  flex:0 0 58px;
-}
-
-.tab .date{
-  font-size:14px;
-}
-
-.tab .week{
-  font-size:9px;
-}
-
-.nav-item{
-  width:68px;
-}
-
-.nav-icon{
-  font-size:20px;
-}
-
+.page{padding-left:10px;padding-right:10px}
+.tabs{gap:5px}
+.tab{width:58px;flex:0 0 58px}
+.tab .date{font-size:14px}
+.tab .week{font-size:9px}
+.nav-item{width:68px}
+.nav-icon{font-size:20px}
 }
 </style>
 </head>
@@ -352,224 +81,132 @@ header p{
 </header>
 
 <div class="tabs">
-<div class="tab active" onclick="showDay('day1',this)">
-<div class="date">8/7</div>
-<div class="week">金</div>
-</div>
-
-<div class="tab" onclick="showDay('day2',this)">
-<div class="date">8/8</div>
-<div class="week">土</div>
-</div>
-
-<div class="tab" onclick="showDay('day3',this)">
-<div class="date">8/9</div>
-<div class="week">日</div>
-</div>
-
-<div class="tab" onclick="showDay('day4',this)">
-<div class="date">8/10</div>
-<div class="week">月</div>
-</div>
-
-<div class="tab" onclick="showDay('day5',this)">
-<div class="date">8/11</div>
-<div class="week">火</div>
-</div>
-
-<div class="tab" onclick="showDay('day6',this)">
-<div class="date">8/12</div>
-<div class="week">水</div>
-</div>
+<div class="tab active" onclick="showDay('day1',this)"><div class="date">8/7</div><div class="week">金</div></div>
+<div class="tab" onclick="showDay('day2',this)"><div class="date">8/8</div><div class="week">土</div></div>
+<div class="tab" onclick="showDay('day3',this)"><div class="date">8/9</div><div class="week">日</div></div>
+<div class="tab" onclick="showDay('day4',this)"><div class="date">8/10</div><div class="week">月</div></div>
+<div class="tab" onclick="showDay('day5',this)"><div class="date">8/11</div><div class="week">火</div></div>
+<div class="tab" onclick="showDay('day6',this)"><div class="date">8/12</div><div class="week">水</div></div>
 </div>
 
 <section id="day1" class="screen active">
-
-<div class="date-title">
-<div class="big-date">8 / 7 <small>金</small></div>
-<div class="en-day">FRIDAY</div>
-</div>
-
+<div class="date-title"><div class="big-date">8 / 7 <small>金</small></div><div class="en-day">FRIDAY</div></div>
 <div class="label">出発・北部ホテルへ</div>
-
 <div class="timeline">
-
-<div class="event">
-<div class="time">10:30</div>
-<h3>✈️ 出発便</h3>
-<p>福岡発</p>
+<div class="event"><div class="time">10:30</div><h3>✈️ 出発便</h3><p>福岡発</p></div>
+<div class="event"><div class="time">12:00</div><h3>🛬 仁川着</h3></div>
+<div class="event"><div class="time">13:00</div><h3>🎰 インスパイア or パラダイスカジノ</h3></div>
+<div class="event"><div class="time">17:00</div><h3>🚕 空港へ戻る</h3></div>
+<div class="event"><div class="time">19:05</div><h3>✈️ 仁川発</h3></div>
+<div class="event"><div class="time">22:50</div><h3>🛬 フーコック空港着</h3></div>
+<div class="event"><div class="time">夜</div><h3>🚗 送迎車で移動</h3><p>約45分</p></div>
+<div class="event highlight"><div class="time">0:00</div><h3>🏨 カジノホテル着</h3><p>ウィンダムグランド または ラディソンブル</p></div>
 </div>
+<div class="memo-box"><div class="memo-head"><div class="memo-title">📝 この日のメモ</div><div class="memo-save">自動保存</div></div><textarea data-memo="memo-0807" placeholder="気づいたこと・予約番号・連絡先・支払い記録など"></textarea></div>
+</section>
 
-<div class="event">
-<div class="time">12:00</div>
-<h3>🛬 仁川着</h3>
+<section id="day2" class="screen">
+<div class="date-title"><div class="big-date">8 / 8 <small>土</small></div><div class="en-day">SATURDAY</div></div>
+<div class="label">カジノ＋サファリ</div>
+<div class="timeline">
+<div class="event"><div class="time">8:00</div><h3>🍳 朝食</h3></div>
+<div class="event"><div class="time">10:00</div><h3>🎰 カジノ</h3></div>
+<div class="event"><div class="time">13:00</div><h3>🦁 サファリトラム</h3></div>
+<div class="event highlight"><div class="time">16:30</div><h3>🏨 ホテルへ</h3></div>
 </div>
+<div class="memo-box"><div class="memo-head"><div class="memo-title">📝 この日のメモ</div><div class="memo-save">自動保存</div></div><textarea data-memo="memo-0808" placeholder="気づいたこと・予約番号・連絡先・支払い記録など"></textarea></div>
+</section>
 
-<div class="event">
-<div class="time">13:00</div>
-<h3>🎰 インスパイア or パラダイスカジノ</h3>
+<section id="day3" class="screen">
+<div class="date-title"><div class="big-date">8 / 9 <small>日</small></div><div class="en-day">SUNDAY</div></div>
+<div class="label">水族館・遊園地</div>
+<div class="timeline">
+<div class="event"><div class="time">8:00</div><h3>🍳 朝食</h3></div>
+<div class="event"><div class="time">12:30</div><h3>🎰 カジノ</h3></div>
+<div class="event"><div class="time">13:00</div><h3>🎢 VinWonders入場</h3></div>
+<div class="event"><div class="time">15:30</div><h3>🧜‍♀️ 水族館マーメイドショー</h3></div>
+<div class="event"><div class="time">16:00</div><h3>🎡 遊園地</h3></div>
+<div class="event"><div class="time">18:45</div><h3>🌃 ONCE SHOW</h3></div>
+<div class="event highlight"><div class="time">19:10</div><h3>🏨 ホテルへ</h3></div>
 </div>
+<div class="memo-box"><div class="memo-head"><div class="memo-title">📝 この日のメモ</div><div class="memo-save">自動保存</div></div><textarea data-memo="memo-0809" placeholder="気づいたこと・予約番号・連絡先・支払い記録など"></textarea></div>
+</section>
 
-<div class="event">
-<div class="time">17:00</div>
-<h3>🚕 空港へ戻る</h3>
+<section id="day4" class="screen">
+<div class="date-title"><div class="big-date">8 / 10 <small>月</small></div><div class="en-day">MONDAY</div></div>
+<div class="label">南部移動・Sun World・ナイトショー</div>
+<div class="timeline">
+<div class="event"><div class="time">8:00</div><h3>🍳 朝食</h3></div>
+<div class="event"><div class="time">11:00</div><h3>🧳 コロナリゾート チェックアウト</h3></div>
+<div class="event"><div class="time">12:00</div><h3>🏨 ヒルトン着</h3><p>荷物預け</p></div>
+<div class="event"><div class="time">13:00</div><h3>🚠 サンワールド着</h3></div>
+<div class="event"><div class="time">16:30</div><h3>🚠 サンワールド発</h3></div>
+<div class="event"><div class="time">17:00</div><h3>🏨 チェックイン</h3></div>
+<div class="event"><div class="time">19:30</div><h3>🌊 Symphony of the Sea</h3></div>
+<div class="event highlight"><div class="time">21:00</div><h3>🎆 Kiss of the Sea</h3><p>大型メインショー</p></div>
 </div>
+<div class="memo-box"><div class="memo-head"><div class="memo-title">📝 この日のメモ</div><div class="memo-save">自動保存</div></div><textarea data-memo="memo-0810" placeholder="気づいたこと・予約番号・連絡先・支払い記録など"></textarea></div>
+</section>
 
-<div class="event">
-<div class="time">19:05</div>
-<h3>✈️ 仁川発</h3>
+<section id="day5" class="screen">
+<div class="date-title"><div class="big-date">8 / 11 <small>火</small></div><div class="en-day">TUESDAY</div></div>
+<div class="label">最終日・ヘッドスパ・空港へ</div>
+<div class="timeline">
+<div class="event"><div class="time">9:00</div><h3>🍳 朝食</h3></div>
+<div class="event"><div class="time">12:00</div><h3>🚶 街歩き＆散策</h3><p>荷物は預けたままでOK</p></div>
+<div class="event"><div class="time">17:00</div><h3>💆 ヘッドスパ</h3></div>
+<div class="event"><div class="time">19:00</div><h3>🍽 ディナー</h3><p>Grab？送迎車？</p></div>
+<div class="event"><div class="time">21:00</div><h3>✈️ フーコック空港着</h3></div>
+<div class="event highlight"><div class="time">夜</div><h3>🛋 ラウンジ</h3><p>シャワー＆休憩</p></div>
 </div>
+<div class="memo-box"><div class="memo-head"><div class="memo-title">📝 この日のメモ</div><div class="memo-save">自動保存</div></div><textarea data-memo="memo-0811" placeholder="気づいたこと・予約番号・連絡先・支払い記録など"></textarea></div>
+</section>
 
-<div class="event">
-<div class="time">22:50</div>
-<h3>🛬 フーコック空港着</h3>
+<section id="day6" class="screen">
+<div class="date-title"><div class="big-date">8 / 12 <small>水</small></div><div class="en-day">WEDNESDAY</div></div>
+<div class="label">帰国日</div>
+<div class="timeline">
+<div class="event"><div class="time">0:10</div><h3>✈️ 帰国便</h3><p>フーコック発</p></div>
+<div class="event"><div class="time">7:50</div><h3>🛬 仁川着</h3></div>
+<div class="event"><div class="time">朝</div><h3>🎰 パラダイスカジノで暇つぶし</h3></div>
+<div class="event"><div class="time">13:25</div><h3>✈️ 仁川発</h3></div>
+<div class="event highlight"><div class="time">16:55</div><h3>🛬 福岡着</h3></div>
 </div>
-
-</div>
-
-<div class="memo-box">
-<div class="memo-head">
-<div class="memo-title">📝 この日のメモ</div>
-<div class="memo-save">自動保存</div>
-</div>
-
-<textarea data-memo="memo-0807" placeholder="気づいたこと・予約番号・連絡先・支払い記録など"></textarea>
-</div>
-
+<div class="memo-box"><div class="memo-head"><div class="memo-title">📝 この日のメモ</div><div class="memo-save">自動保存</div></div><textarea data-memo="memo-0812" placeholder="気づいたこと・予約番号・連絡先・支払い記録など"></textarea></div>
 </section>
 
 </div>
 
 <div class="bottom-nav">
-
-<div class="nav-item" onclick="openPopup('hotelPopup')">
-<div class="nav-icon">🏨</div>
-<div class="nav-text">ホテル</div>
+<div class="nav-item" onclick="openPopup('hotelPopup')"><div class="nav-icon">🏨</div><div class="nav-text">ホテル</div></div>
+<div class="nav-item" onclick="openPopup('casinoPopup')"><div class="nav-icon">🎰</div><div class="nav-text">カジノ</div></div>
+<div class="nav-item" onclick="openPopup('showPopup')"><div class="nav-icon">🌃</div><div class="nav-text">ショー</div></div>
+<div class="nav-item" onclick="openPopup('itemPopup')"><div class="nav-icon">☑️</div><div class="nav-text">持ち物</div></div>
+<div class="nav-item" onclick="scrollToMemo()"><div class="nav-icon">📝</div><div class="nav-text">メモ</div></div>
 </div>
 
-<div class="nav-item" onclick="openPopup('casinoPopup')">
-<div class="nav-icon">🎰</div>
-<div class="nav-text">カジノ</div>
-</div>
-
-<div class="nav-item" onclick="openPopup('showPopup')">
-<div class="nav-icon">🌃</div>
-<div class="nav-text">ショー</div>
-</div>
-
-<div class="nav-item" onclick="openPopup('itemPopup')">
-<div class="nav-icon">☑️</div>
-<div class="nav-text">持ち物</div>
-</div>
-
-<div class="nav-item" onclick="scrollToMemo()">
-<div class="nav-icon">📝</div>
-<div class="nav-text">メモ</div>
-</div>
-
-</div>
-
-<!-- ホテル -->
-
-<div class="popup" id="hotelPopup">
-<div class="popup-box">
-<h2>🏨 ホテル</h2>
-<p>
-・ウィンダムグランド<br>
-・ラディソンブル<br>
-・ヒルトン
-</p>
-<button class="close-btn" onclick="closePopup('hotelPopup')">閉じる</button>
-</div>
-</div>
-
-<!-- カジノ -->
-
-<div class="popup" id="casinoPopup">
-<div class="popup-box">
-<h2>🎰 カジノ</h2>
-<p>
-・コロナカジノ<br>
-・パラダイスカジノ<br>
-・インスパイア
-</p>
-<button class="close-btn" onclick="closePopup('casinoPopup')">閉じる</button>
-</div>
-</div>
-
-<!-- ショー -->
-
-<div class="popup" id="showPopup">
-<div class="popup-box">
-<h2>🌃 ショー</h2>
-<p>
-・Kiss of the Sea<br>
-・Symphony of the Sea<br>
-・ONCE SHOW
-</p>
-<button class="close-btn" onclick="closePopup('showPopup')">閉じる</button>
-</div>
-</div>
-
-<!-- 持ち物 -->
-
-<div class="popup" id="itemPopup">
-<div class="popup-box">
-<h2>☑️ 持ち物</h2>
-<p>
-・パスポート<br>
-・クレカ<br>
-・モバイルバッテリー<br>
-・水着<br>
-・サンダル
-</p>
-<button class="close-btn" onclick="closePopup('itemPopup')">閉じる</button>
-</div>
-</div>
+<div class="popup" id="hotelPopup"><div class="popup-box"><h2>🏨 ホテル</h2><p>・ウィンダムグランド<br>・ラディソンブル<br>・ヒルトン</p><button class="close-btn" onclick="closePopup('hotelPopup')">閉じる</button></div></div>
+<div class="popup" id="casinoPopup"><div class="popup-box"><h2>🎰 カジノ</h2><p>・コロナカジノ<br>・パラダイスカジノ<br>・インスパイア</p><button class="close-btn" onclick="closePopup('casinoPopup')">閉じる</button></div></div>
+<div class="popup" id="showPopup"><div class="popup-box"><h2>🌃 ショー</h2><p>・Kiss of the Sea<br>・Symphony of the Sea<br>・ONCE SHOW</p><button class="close-btn" onclick="closePopup('showPopup')">閉じる</button></div></div>
+<div class="popup" id="itemPopup"><div class="popup-box"><h2>☑️ 持ち物</h2><p>・パスポート<br>・クレカ<br>・モバイルバッテリー<br>・水着<br>・サンダル</p><button class="close-btn" onclick="closePopup('itemPopup')">閉じる</button></div></div>
 
 <script>
-
 function showDay(id,el){
-
-document.querySelectorAll(".screen").forEach(s=>{
-s.classList.remove("active");
-});
-
+document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"));
 document.getElementById(id).classList.add("active");
-
-document.querySelectorAll(".tab").forEach(t=>{
-t.classList.remove("active");
-});
-
+document.querySelectorAll(".tab").forEach(t=>t.classList.remove("active"));
 el.classList.add("active");
 }
 
+function openPopup(id){document.getElementById(id).classList.add("active")}
+function closePopup(id){document.getElementById(id).classList.remove("active")}
+function scrollToMemo(){document.querySelector(".screen.active .memo-box").scrollIntoView({behavior:"smooth"})}
+
 document.querySelectorAll("textarea[data-memo]").forEach(function(area){
-
-const key = area.dataset.memo;
-
-area.value = localStorage.getItem(key) || "";
-
-area.addEventListener("input",function(){
-localStorage.setItem(key,area.value);
+const key=area.dataset.memo;
+area.value=localStorage.getItem(key)||"";
+area.addEventListener("input",function(){localStorage.setItem(key,area.value)});
 });
-
-});
-
-function openPopup(id){
-document.getElementById(id).classList.add("active");
-}
-
-function closePopup(id){
-document.getElementById(id).classList.remove("active");
-}
-
-function scrollToMemo(){
-document.querySelector(".memo-box").scrollIntoView({
-behavior:"smooth"
-});
-}
-
 </script>
 
 </body>
