@@ -1,9 +1,10 @@
+```html
 <!DOCTYPE html>
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>フーコック旅行 2026</title>
+<title>フーコック旅行</title>
 
 <style>
 
@@ -23,10 +24,10 @@ body{
 .page{
   max-width:520px;
   margin:0 auto;
-  padding:28px 14px 110px;
+  padding:26px 14px 120px;
 }
 
-/* ---------- header ---------- */
+/* header */
 
 header{
   text-align:center;
@@ -34,26 +35,26 @@ header{
 }
 
 header h1{
-  font-size:26px;
+  font-size:24px;
   font-weight:500;
   letter-spacing:.18em;
-  margin-bottom:6px;
+  margin-bottom:8px;
 }
 
 header p{
   font-size:12px;
   letter-spacing:.25em;
-  color:#7b7266;
+  color:#7a7064;
 }
 
 .line{
-  width:36px;
+  width:34px;
   height:2px;
   background:#bd9440;
-  margin:16px auto 0;
+  margin:14px auto 0;
 }
 
-/* ---------- tabs ---------- */
+/* tabs */
 
 .tabs{
   display:flex;
@@ -61,30 +62,28 @@ header p{
   overflow-x:auto;
   padding-bottom:18px;
   border-bottom:1px solid #e2d8c8;
-  margin-bottom:28px;
+  margin-bottom:30px;
 }
 
 .tab{
   min-width:76px;
-  background:#fffaf3;
+  background:#fffaf4;
   border:1px solid #ddd3c3;
   border-radius:16px;
-  padding:12px 0;
   text-align:center;
+  padding:11px 0;
   cursor:pointer;
   box-shadow:0 2px 6px rgba(0,0,0,.03);
-  transition:.2s;
 }
 
 .tab .date{
   font-size:18px;
-  color:#5f564d;
-  font-weight:500;
+  color:#5e564c;
 }
 
 .tab .week{
   font-size:12px;
-  color:#8a8175;
+  color:#8a8174;
   margin-top:2px;
 }
 
@@ -97,7 +96,7 @@ header p{
   color:#fff;
 }
 
-/* ---------- page ---------- */
+/* page */
 
 .screen{
   display:none;
@@ -107,35 +106,36 @@ header p{
   display:block;
 }
 
-/* ---------- title ---------- */
+/* date */
 
 .date-title{
   margin-bottom:18px;
 }
 
 .big-date{
-  font-size:58px;
+  font-size:42px;
   font-weight:300;
-  letter-spacing:.04em;
+  letter-spacing:.03em;
+  line-height:1.1;
 }
 
 .big-date small{
-  font-size:20px;
+  font-size:16px;
   color:#9c937f;
 }
 
 .en-day{
-  font-size:13px;
-  letter-spacing:.2em;
+  font-size:11px;
+  letter-spacing:.18em;
   color:#6f675d;
-  margin-top:-6px;
+  margin-top:2px;
 }
 
-/* ---------- label ---------- */
+/* label */
 
 .label{
   display:inline-block;
-  padding:9px 18px;
+  padding:8px 16px;
   border:1px solid #2d7d85;
   border-radius:8px;
   color:#17666d;
@@ -144,7 +144,7 @@ header p{
   margin:18px 0 28px;
 }
 
-/* ---------- timeline ---------- */
+/* timeline */
 
 .timeline{
   position:relative;
@@ -180,16 +180,16 @@ header p{
 }
 
 .event h3{
-  font-size:18px;
+  font-size:17px;
   margin-bottom:4px;
 }
 
 .event p{
-  font-size:14px;
+  font-size:13px;
   color:#6f655a;
 }
 
-/* ---------- bottom nav ---------- */
+/* bottom */
 
 .bottom-nav{
   position:fixed;
@@ -213,40 +213,17 @@ header p{
   text-align:center;
   padding:8px 4px;
   cursor:pointer;
-  font-size:12px;
+  font-size:11px;
 }
 
 .nav-item div{
-  font-size:20px;
+  font-size:19px;
   margin-bottom:2px;
 }
 
 .nav-item.active{
   background:#111;
   color:#fff;
-}
-
-.card{
-  background:#fffdf9;
-  border:1px solid #e1d7c7;
-  border-radius:16px;
-  padding:18px;
-  margin-bottom:14px;
-}
-
-.card h3{
-  font-size:17px;
-  margin-bottom:8px;
-}
-
-.card p,
-.card li{
-  font-size:14px;
-  color:#655d54;
-}
-
-ul{
-  padding-left:18px;
 }
 
 </style>
@@ -263,6 +240,7 @@ ul{
 </header>
 
 <div class="tabs">
+
 <div class="tab active" onclick="showDay('day1',this)">
 <div class="date">8/7</div>
 <div class="week">金</div>
@@ -292,6 +270,7 @@ ul{
 <div class="date">8/12</div>
 <div class="week">水</div>
 </div>
+
 </div>
 
 <!-- 8/7 -->
@@ -325,13 +304,13 @@ ul{
 
 <div class="event">
 <div class="time">22:50</div>
-<h3>🛬 ドンムアン空港着</h3>
+<h3>🛬 フーコック着</h3>
 </div>
 
 <div class="event highlight">
 <div class="time">00:00〜</div>
 <h3>🏨 ホテル着</h3>
-<p>ウィンダムグランド or ラディソンブル</p>
+<p>ウィンダム or ラディソン</p>
 </div>
 
 </div>
@@ -362,8 +341,8 @@ ul{
 
 <div class="event">
 <div class="time">13:00</div>
-<h3>🦁 サファリトラム</h3>
-<p>ライオン・トラ・キリン</p>
+<h3>🦁 サファリ</h3>
+<p>トラム・キリン餌やり</p>
 </div>
 
 <div class="event highlight">
@@ -389,7 +368,7 @@ ul{
 
 <div class="event">
 <div class="time">13:00</div>
-<h3>🎢 VinWonders入場</h3>
+<h3>🎢 VinWonders</h3>
 </div>
 
 <div class="event">
@@ -398,7 +377,7 @@ ul{
 </div>
 
 <div class="event">
-<div class="time">16:00〜17:30</div>
+<div class="time">16:00</div>
 <h3>🎡 遊園地</h3>
 </div>
 
@@ -440,12 +419,12 @@ ul{
 
 <div class="event">
 <div class="time">17:00</div>
-<h3>🏨 ヒルトンチェックイン</h3>
+<h3>🏨 ヒルトン</h3>
 </div>
 
 <div class="event">
 <div class="time">19:30</div>
-<h3>🌊 Symphony of the Sea</h3>
+<h3>🌊 Symphony</h3>
 </div>
 
 <div class="event highlight">
@@ -496,7 +475,7 @@ ul{
 <div class="en-day">WEDNESDAY</div>
 </div>
 
-<div class="label">帰国</div>
+<div class="label">帰国日</div>
 
 <div class="timeline">
 
@@ -522,27 +501,27 @@ ul{
 
 <div class="bottom-nav">
 
-<div class="nav-item" onclick="showInfo(this)">
+<div class="nav-item">
 <div>🏨</div>
 ホテル
 </div>
 
-<div class="nav-item" onclick="showInfo(this)">
+<div class="nav-item">
 <div>🎰</div>
 カジノ
 </div>
 
-<div class="nav-item" onclick="showInfo(this)">
+<div class="nav-item">
 <div>🌃</div>
 ショー
 </div>
 
-<div class="nav-item" onclick="showInfo(this)">
+<div class="nav-item">
 <div>☑️</div>
 持ち物
 </div>
 
-<div class="nav-item" onclick="showInfo(this)">
+<div class="nav-item">
 <div>📝</div>
 メモ
 </div>
@@ -566,16 +545,8 @@ t.classList.remove("active");
 el.classList.add("active");
 }
 
-function showInfo(el){
-
-document.querySelectorAll(".nav-item").forEach(n=>{
-n.classList.remove("active");
-});
-
-el.classList.add("active");
-}
-
 </script>
 
 </body>
 </html>
+```
